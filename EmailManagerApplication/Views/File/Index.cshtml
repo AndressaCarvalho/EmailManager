@@ -1,0 +1,50 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model FileViewModel
+
+@{
+    ViewData["Title"] = "Files";
+    var countLines = 0;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Arquivo(s) gerado(s)!</h1>
+    <p>Verifique o conteúdo do(s) arquivo(s) gerado(s), e faça download deste(s)</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <hr />
+            <br />
+
+            @foreach(var file in Model.Files) {
+                countLines = 0;
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Linha</th>
+                            <th scope="col">Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var line in file.Lines) {
+                            countLines++;
+                            <tr>
+                                <th scope="row">@countLines</th>
+                                <td>@line</td>
+                            </tr>
+                        }
+                        <tr>
+                            <th scope="row">#</th>
+                            <td>
+                                <a asp-controller="File" asp-action="Download" asp-route-path="@file.Path" asp-route-name="@file.Name">Faça download do arquivo @file.Name</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+            }
+        </section>
+    </div>
+</div>

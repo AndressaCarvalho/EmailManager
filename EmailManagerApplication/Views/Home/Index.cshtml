@@ -1,0 +1,62 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model FileViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Seja bem-vindo(a)!</h1>
+    <p>Gerencie seus e-mail's</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <form asp-controller="Home" asp-action="SplitFile" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <hr />
+                <h4>Faça upload do arquivo:</h4>
+                <br />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="File" class="col-md-2 control-label">Arquivo</label>
+                    <div class="col-md-12">
+                        <input asp-for="File" id="file" class="form-control" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-12 text-center">
+                        <button type="submit" id="uploadBtn" class="btn btn-secondary" disabled="true">Upload</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#file').on('change', function() {
+                if (!($('#file').get(0).files.length === 0)) {
+                    var extAllowed = ['txt'];
+                    var extFile = $('#file').get(0).value.split('.').pop();
+
+                    if(typeof extAllowed.find(function(ext) { return extFile == ext; }) == 'undefined') {
+                        alert('Extensão "' + extFile + '" não permitida! Por favor, faça o upload de um arquivo válido.');
+                        
+                        $('#file').val('');
+                        $('#uploadBtn').prop('disabled', true).removeClass('btn-primary').addClass('btn-secondary');
+                    } else {
+                        $('#uploadBtn').prop('disabled', false).removeClass('btn-secondary').addClass('btn-primary');
+                    }
+                } else {
+                    $('#uploadBtn').prop('disabled', true).removeClass('btn-primary').addClass('btn-secondary');
+                }
+            } );
+        });
+    </script>
+}
