@@ -1,5 +1,5 @@
 ## Descrição do projeto
-O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvida em ASP.NET Core, com a linguagem de programação C#. Tal sistema objetiva prover um meio de dividir um arquivo TXT, contendo endereços de e-mail, em subarquivos, que comportam no máximo 5 endereços de e-mail.
+O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvida em ASP.NET Core, com a linguagem de programação C#. Tal sistema objetiva prover um meio de dividir um arquivo TXT, contendo endereços de e-mail, em subarquivos, que comportam no máximo 5 endereços de e-mail.<br/>
 **Nota:** Os referidos e-mail's são armazenados na condição destes serem válidos, e de forma a não se repetirem.<br/>
 <h3 align="center">
     <a href="https://learn.microsoft.com/pt-br/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-7.0">🔗 ASP.NET Core</a>
@@ -12,8 +12,8 @@ O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvi
     <img src="https://img.shields.io/badge/última%20atualização-setembro%202023-lightblue" />
     <img src="https://img.shields.io/badge/linguagem-c%23-orange" />
     <img src="https://img.shields.io/badge/plataforma-asp.net%20core-orange" />
-    <img src="https://img.shields.io/badge/inglês%20(US)-90%25-ff69b4" />
-    <img src="https://img.shields.io/badge/português%20(BR)-10%25-ff69b4" />
+    <img src="https://img.shields.io/badge/inglês%20(US)-80%25-ff69b4" />
+    <img src="https://img.shields.io/badge/português%20(BR)-20%25-ff69b4" />
 </h4>
 
 ---
@@ -51,7 +51,7 @@ Você deve ter as seguintes ferramentas instaladas em sua máquina: [Visual Stud
 
 ```bash
 # Clone este repositório
-$ git clone [https://github.com/AndressaCarvalho/ProductManagementAPI.git](https://github.com/AndressaCarvalho/EmailManager.git)
+$ git clone https://github.com/AndressaCarvalho/EmailManager.git
 
 # Abra o projeto no Visual Studio ou no Visual Studio Code
 
