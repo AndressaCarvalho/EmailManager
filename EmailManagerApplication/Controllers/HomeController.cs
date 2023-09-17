@@ -29,10 +29,13 @@ public class HomeController : Controller
     {
         try 
         {
+            var originalFileDirectoryPath = Path.Combine(_hostingEnv.WebRootPath, "uploadedFiles");
+            if (!Directory.Exists(originalFileDirectoryPath))
+                Directory.CreateDirectory(originalFileDirectoryPath);
+
             var splitedOriginalFileName = Path.GetFileName(model.File.FileName).Split('.');
             var originalFileName = splitedOriginalFileName[0] + "-" + DateTime.Now.ToString("yyyyMMddHHmmssffff") + "." + splitedOriginalFileName[1];
-            var originalFilePath = Path.Combine(_hostingEnv.WebRootPath, "uploadedFiles", originalFileName);
-
+            var originalFilePath = Path.Combine(originalFileDirectoryPath, originalFileName);
             using (var fileSteam = new FileStream(originalFilePath, FileMode.Create))
             {
                 await model.File.CopyToAsync(fileSteam);
@@ -48,7 +51,7 @@ public class HomeController : Controller
             linesContents = linesContents.Select(l => l.Trim()).Where(IsValidEmail).Distinct().ToArray();
             var dateTimeToNewFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff");
             int countLines = 0, countNewFileLines = 0, newFileNumberName = 1, quantLines = linesContents.Count() - 1;
-            string newFileName = string.Empty, newFilePath = string.Empty;
+            string newFileDirectoryPath = string.Empty, newFileName = string.Empty, newFilePath = string.Empty;
 
             while (countLines <= quantLines) 
             {
@@ -61,9 +64,12 @@ public class HomeController : Controller
                     dateTimeToNewFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff");
                 }
 
-                newFileName = "file" + newFileNumberName + "-" + dateTimeToNewFileName + ".txt";
-                newFilePath = Path.Combine(_hostingEnv.WebRootPath, "generatedFiles", newFileName);
+                newFileDirectoryPath = Path.Combine(_hostingEnv.WebRootPath, "generatedFiles");
+                if (!Directory.Exists(newFileDirectoryPath))
+                    Directory.CreateDirectory(newFileDirectoryPath);
 
+                newFileName = "file" + newFileNumberName + "-" + dateTimeToNewFileName + ".txt";
+                newFilePath = Path.Combine(newFileDirectoryPath, newFileName);
                 using (StreamWriter outputFile = new StreamWriter(newFilePath, true))
                 {
                     outputFile.WriteLine(linesContents[countLines]);
