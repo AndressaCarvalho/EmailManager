@@ -27,7 +27,7 @@ public class HomeController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SplitFile([FromForm]FileViewModel model)
     {
-        if (model.File != null)
+        try 
         {
             var splitedOriginalFileName = Path.GetFileName(model.File.FileName).Split('.');
             var originalFileName = splitedOriginalFileName[0] + "-" + DateTime.Now.ToString("yyyyMMddHHmmssffff") + "." + splitedOriginalFileName[1];
@@ -40,11 +40,12 @@ public class HomeController : Controller
             
             var originalFile = new StreamReader(originalFilePath).ReadToEnd();
             List<string> listNewFileLinesContents = new List<string>();
-            FileViewModel newFileViewModel = new FileViewModel {
+            FileViewModel newFileViewModel = new FileViewModel 
+            {
                 Files = new List<FileModel>()
             };
             var linesContents = originalFile.Replace("\r", "").Split('\n');
-            linesContents = linesContents.Select(l => l).Where(IsValidEmail).Distinct().ToArray();
+            linesContents = linesContents.Select(l => l.Trim()).Where(IsValidEmail).Distinct().ToArray();
             var dateTimeToNewFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff");
             int countLines = 0, countNewFileLines = 0, newFileNumberName = 1, quantLines = linesContents.Count() - 1;
             string newFileName = string.Empty, newFilePath = string.Empty;
@@ -53,7 +54,8 @@ public class HomeController : Controller
             {
                 countNewFileLines++;
 
-                if (countNewFileLines == 6) {
+                if (countNewFileLines == 6) 
+                {
                     countNewFileLines = 1;
                     newFileNumberName++;
                     dateTimeToNewFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff");
@@ -71,7 +73,8 @@ public class HomeController : Controller
 
                 countLines++;
 
-                if (countLines > quantLines || countNewFileLines == 5) {
+                if (countLines > quantLines || countNewFileLines == 5) 
+                {
                     FileModel newFile = new FileModel(newFileName, newFilePath, listNewFileLinesContents);
                     newFileViewModel.Files.Add(newFile);
 
@@ -80,9 +83,13 @@ public class HomeController : Controller
             }
 
             return View("../File/Index", newFileViewModel);
-        }
+        } 
+        catch (Exception e) 
+        {
+            _logger.LogError(e, "Error generating files!");
 
-        return View("Index");
+            return RedirectToAction("Error");
+        }
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

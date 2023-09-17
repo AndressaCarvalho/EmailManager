@@ -1,18 +1,13 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using EmailManagerApplication.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace EmailManagerApplication.Controllers;
 
 public class FileController : Controller
 {
-    private readonly IWebHostEnvironment _hostingEnv;
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<FileController> _logger;
 
-    public FileController(IWebHostEnvironment hostingEnv, ILogger<HomeController> logger)
+    public FileController(ILogger<FileController> logger)
     {
-        _hostingEnv = hostingEnv;
         _logger = logger;
     }
 
@@ -24,8 +19,17 @@ public class FileController : Controller
     [HttpGet]
     public IActionResult Download([FromQuery]string path, string name)
     {
-        byte[] fileBytes = System.IO.File.ReadAllBytes(path);
+        try 
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path);
 
-        return File(fileBytes, "application/force-download", name);
+            return File(fileBytes, "application/force-download", name);
+        } 
+        catch (Exception e) 
+        {
+            _logger.LogError(e, "Error on download file!");
+
+            return RedirectToAction("Error", "Home");
+        }
     }
 }

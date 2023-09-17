@@ -13,12 +13,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file1-202309161953376753.txt",
-      "PackagePath": "staticwebassets\\generatedFiles\\file1-202309161953376753.txt"
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file1-202309171446490549.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file1-202309171446490549.txt"
     },
     {
-      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file2-202309161953376922.txt",
-      "PackagePath": "staticwebassets\\generatedFiles\\file2-202309161953376922.txt"
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file2-202309171446490754.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file2-202309171446490754.txt"
+    },
+    {
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file3-202309171446490853.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file3-202309171446490853.txt"
+    },
+    {
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file4-202309171446490942.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file4-202309171446490942.txt"
+    },
+    {
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file5-202309171446491189.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file5-202309171446491189.txt"
+    },
+    {
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\generatedFiles\\file6-202309171446491726.txt",
+      "PackagePath": "staticwebassets\\generatedFiles\\file6-202309171446491726.txt"
     },
     {
       "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\js\\site.js",
@@ -253,8 +269,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\uploadedFiles\\fileTest-202309161953373620.txt",
-      "PackagePath": "staticwebassets\\uploadedFiles\\fileTest-202309161953373620.txt"
+      "Id": "C:\\Users\\Computer\\Desktop\\emailmanager\\EmailManagerApplication\\wwwroot\\uploadedFiles\\emails-202309171446489913.txt",
+      "PackagePath": "staticwebassets\\uploadedFiles\\emails-202309171446489913.txt"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.EmailManagerApplication.Microsoft.AspNetCore.StaticWebAssets.props",
