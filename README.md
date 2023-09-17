@@ -1,5 +1,5 @@
 ## Descrição do projeto
-O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvida em ASP.NET Core, com a linguagem de programação C#. Tal sistema objetiva prover um meio de dividir um arquivo TXT, contendo endereços de e-mail, em subarquivos, que comportam no máximo 5 endereços de e-mail.<br/>
+O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvida em ASP.NET Core, com a linguagem de programação C#. Tal sistema objetiva prover um meio de dividir um arquivo TXT, contendo endereços de e-mail, em subarquivos TXT, que comportam no máximo 5 endereços de e-mail.<br/>
 **Nota:** Os referidos e-mail's são armazenados na condição destes serem válidos, e de forma a não se repetirem.<br/>
 <h3 align="center">
     <a href="https://learn.microsoft.com/pt-br/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-7.0">🔗 ASP.NET Core</a>
@@ -38,8 +38,8 @@ O projeto consiste em uma aplicação WEB para a gestão de e-mail's, desenvolvi
 
 ## Recursos
 - [x] Upload de arquivo TXT
-- [x] Divisão de arquivo TXT em subarquivos
-- [x] Listagem de endereços de e-mail contidos nos subarquivos 
+- [x] Divisão de arquivo TXT em subarquivos TXT
+- [x] Listagem de endereços de e-mail contidos nos subarquivos TXT
 - [x] Download de subarquivos
 
 ---
